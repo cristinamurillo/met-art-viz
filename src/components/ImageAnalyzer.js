@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
 import useImage from 'use-image';
-import rainbow from '../images/rainbow.jpg'
+import rainbow from '../images/billy.png'
 
 
 
-const ImageAnalyzer = ({setImageData}) => {
+const ImageAnalyzer = ({userRect, setImageData}) => {
     const [image] = useImage(rainbow);
-    console.log(image)
     useEffect(() => {
         if(!image) return 
         const canvas = document.createElement('canvas')
@@ -16,35 +15,29 @@ const ImageAnalyzer = ({setImageData}) => {
         ctx.drawImage(image, 0, 0);
 
         const arrayOfAverages = []
-        moveThroughImage(image, (x,y) => {
-            const colorObject = getrgbAverages(ctx.getImageData(x, y, 50, 50))
-            arrayOfAverages.push({
-                width: 50,
-                height: 50,
-                x,
-                y,
-                ...colorObject
-            })
-        })
+
+        // move through image
+        for(let y=userRect.y; y<userRect.height + userRect.y; y+=10){
+            for(let x=userRect.x; x<userRect.width + userRect.x; x+=10){
+                const colorObject = getrgbAverages(ctx.getImageData(x, y, 10, 10))
+                arrayOfAverages.push({
+                    width: 10,
+                    height: 10,
+                    x: x - userRect.x,
+                    y: y - userRect.y,
+                    ...colorObject
+                })
+            }
+        }
+        
         setImageData(arrayOfAverages)
-    }, [image])
+    }, [image, userRect])
 
 
     return ""
 }
 
 export default ImageAnalyzer
-
-
-
-
-function moveThroughImage(image, callback) {
-    for(let y=0; y<image.height; y+=50){
-        for(let x=0; x<image.width; x+=50){
-            callback(x,y)
-        }
-    }
-}
 
 
 function getrgbAverages(imageData) {
