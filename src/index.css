@@ -12,3 +12,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.img-channels-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  width: 100vw;
+}
+
+.channels-container {
+  height:200px;
+  width:200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.img-render {
+  flex-basis: 500px;
+  flex-grow: 0;
+  flex-shrink: 1;
+}

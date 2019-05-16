@@ -4,9 +4,8 @@ import ColorChannelGrid from './ColorChannelGrid'
 class ColorChannels extends Component {
     render() {
         const arrayOfAverages = this.props.imageData
-        // debugger
         return (
-            <div>
+            <div className="channels-container">
                 <ColorChannelGrid arrayOfAverages={arrayOfAverages} colorOfGrid='red,green,blue' />
                 <ColorChannelGrid arrayOfAverages={arrayOfAverages} colorOfGrid='red' />
                 <ColorChannelGrid arrayOfAverages={arrayOfAverages} colorOfGrid='green' />

@@ -9,8 +9,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <ImageRender setUserRect={setUserRect}/>
-      <ColorChannels imageData={imageData}/>
+      <div className="img-channels-container">
+        <ImageRender setUserRect={setUserRect}/>
+        <ColorChannels imageData={imageData}/>
+      </div>
       <ImageAnalyzer userRect={userRect} setImageData={setImageData}/>
     </div>
   );
