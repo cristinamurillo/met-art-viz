@@ -5,7 +5,7 @@ import ImageRender from './components/ImageRender'
 
 const App = () => {
   const [imageData, setImageData] = useState([])
-  const [userRect, setUserRect] = useState([{x: 0, y: 0, width: 100, height: 100}])
+  const [userRect, setUserRect] = useState({x: 0, y: 0, width: 100, height: 100})
 
   return (
     <div className="App">

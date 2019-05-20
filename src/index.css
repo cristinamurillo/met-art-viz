@@ -33,4 +33,15 @@ code {
   flex-basis: 500px;
   flex-grow: 0;
   flex-shrink: 1;
+  position: relative;
+  cursor: none;
+}
+
+.mouse-rect {
+  position: absolute;
+  border: 2px solid white;
+  pointer-events: none;
+  cursor: none;
+  border-radius: 2px;
+  box-shadow: 0 0 6px black;
 }
