@@ -1,11 +1,10 @@
 import React, {useEffect} from 'react';
 import useImage from 'use-image';
-import rainbow from '../images/billy.png'
 
 
 
-const ImageAnalyzer = ({userRect, setImageData}) => {
-    const [image] = useImage(rainbow);
+const ImageAnalyzer = ({userRect, setImageData, userSelection}) => {
+    const [image] = useImage(userSelection);
     useEffect(() => {
         if(!image) return 
         const canvas = document.createElement('canvas')
