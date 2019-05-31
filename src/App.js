@@ -10,12 +10,12 @@ const App = () => {
   const [userSelection, setUserSelection] = useState(defaultImg)
   return (
     <div className="App">
-      <ImageSelection setUserSelection={setUserSelection}/>
-      <div className="img-channels-container">
+      {/* <div className="img-channels-container"> */}
         <ImageRender setUserRect={setUserRect} userSelection={userSelection}/>
         <ColorChannels imageData={imageData}/>
-      </div>
+      {/* </div> */}
       <ImageAnalyzer userRect={userRect} setImageData={setImageData} userSelection={userSelection}/>
+      <ImageSelection setUserSelection={setUserSelection}/>
     </div>
   );
 }

@@ -6,11 +6,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #383838
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: 1fr 200px;
+  grid-template-columns: 2fr 1fr;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  grid-gap: 10px 20px;
+  padding: 20px;
 }
 
 .img-channels-container {
@@ -27,7 +39,13 @@ code {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px black;
+  overflow: hidden;
+  justify-self: center;
+  align-self: center;
 }
+
 
 .img-render {
   flex-basis: 500px;
@@ -35,6 +53,15 @@ code {
   flex-shrink: 1;
   position: relative;
   cursor: none;
+  justify-self: center;
+  align-self: center;
+}
+
+.selected-img {
+  border-radius: 20px;
+  box-shadow: 0 5px 10px black;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .mouse-rect {
@@ -48,11 +75,25 @@ code {
 
 .selection-container {
   display: flex;
+  grid-area: 2 / 1 / 2 / 3;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .image-option {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-size: cover;
   background-position: center;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px black;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.image-option:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px black;
 }
