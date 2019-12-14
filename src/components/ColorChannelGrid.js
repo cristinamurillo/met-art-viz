@@ -23,7 +23,7 @@ const ColorChannelGrid = (props) => {
     const {arrayOfAverages, colorOfGrid} = props
     
     return (
-        <svg  width="100" height="100">
+        <svg  width="150" height="150">
             {arrayOfAverages.map((colorObj, index) => {
                 return <ColorChannelSquare data={colorObj} key={index} colorOfGrid={colorOfGrid}/>
             })}
