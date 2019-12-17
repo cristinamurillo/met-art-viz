@@ -16,7 +16,6 @@ code {
 
 .App {
   display: grid;
-  grid-template-rows: 1fr 200px;
   grid-template-columns: 2fr 1fr;
   height: 100vh;
   width: 100vw;
@@ -48,13 +47,36 @@ code {
 
 
 .img-render {
-  flex-basis: 500px;
-  flex-grow: 0;
-  flex-shrink: 1;
-  position: relative;
-  cursor: none;
-  justify-self: center;
-  align-self: center;
+    position: relative;
+    cursor: none;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+}
+.img-wrapper {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 500px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    position: relative;
+}
+
+.next-icon {
+ cursor: pointer;
+ margin: 2.5em;
+ transform: scale(1.4);
+ transition: transform .2s;
+}
+.next-icon.left {
+    transform: scaleX(-1) scale(1.4);
+}
+.next-icon.left:hover {
+    transform: scaleX(-1) scale(1.8);
+}
+.next-icon:hover {
+    transform: scale(1.8);
 }
 
 .selected-img {

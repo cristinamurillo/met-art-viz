@@ -3,17 +3,17 @@ import ColorChannels from './components/ColorChannels'
 import ImageAnalyzer from './components/ImageAnalyzer'
 import ImageRender from './components/ImageRender'
 import ImageSelection, {defaultImg} from './components/ImageSelection';
+import gaga from './images/gaga.jpg'
 
 const App = () => {
   const [imageData, setImageData] = useState([])
   const [userRect, setUserRect] = useState({x: 0, y: 0, width: 100, height: 100})
-  const [userSelection, setUserSelection] = useState(defaultImg)
+  const [userSelection, setUserSelection] = useState(gaga)
   return (
     <div className="App">
-        <ImageRender setUserRect={setUserRect} userSelection={userSelection}/>
+        <ImageRender setUserRect={setUserRect} setUserSelection={setUserSelection} userSelection={userSelection}/>
         <ColorChannels imageData={imageData}/>
       <ImageAnalyzer userRect={userRect} setImageData={setImageData} userSelection={userSelection}/>
-      <ImageSelection setUserSelection={setUserSelection}/>
     </div>
   );
 }
