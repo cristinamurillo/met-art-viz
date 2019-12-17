@@ -13,8 +13,8 @@ const ImageRender = ({setUserRect, setUserSelection, userSelection}) => {
     const moveHandler = (event) => {
         const ratio = event.target.width / event.target.naturalWidth
         setUserRect({
-            x: event.nativeEvent.offsetX / ratio - 75, 
-            y: event.nativeEvent.offsetY / ratio - 75, 
+            x: event.nativeEvent.offsetX / ratio - 50, 
+            y: event.nativeEvent.offsetY / ratio - 50, 
             width: 150, 
             height: 150,
         })
@@ -22,8 +22,8 @@ const ImageRender = ({setUserRect, setUserSelection, userSelection}) => {
         setUserMousePosition({
             top: event.nativeEvent.offsetY - (100*ratio / 2),
             left: event.nativeEvent.offsetX - (100*ratio / 2),
-            width: 100 * ratio,
-            height: 100 * ratio
+            width: 150 * ratio,
+            height: 150 * ratio
         })
     }
     return(
