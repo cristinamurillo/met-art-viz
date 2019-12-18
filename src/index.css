@@ -48,12 +48,12 @@ code {
 
 .img-render {
     position: relative;
-    cursor: none;
     justify-self: center;
     align-self: center;
     display: flex;
 }
 .img-wrapper {
+    cursor: none;
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: 500px;
