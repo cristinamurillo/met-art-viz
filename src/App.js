@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ColorChannels from './components/ColorChannels'
 import ImageAnalyzer from './components/ImageAnalyzer'
-import ImageRender from './components/ImageRender'
-import ImageSelection, {defaultImg} from './components/ImageSelection';
+import ImageRender, {defaultImg} from './components/ImageRender'
 
 const App = () => {
   const [imageData, setImageData] = useState([])
@@ -10,10 +9,9 @@ const App = () => {
   const [userSelection, setUserSelection] = useState(defaultImg)
   return (
     <div className="App">
-        <ImageRender setUserRect={setUserRect} userSelection={userSelection}/>
+        <ImageRender setUserRect={setUserRect} setUserSelection={setUserSelection} userSelection={userSelection}/>
         <ColorChannels imageData={imageData}/>
       <ImageAnalyzer userRect={userRect} setImageData={setImageData} userSelection={userSelection}/>
-      <ImageSelection setUserSelection={setUserSelection}/>
     </div>
   );
 }
