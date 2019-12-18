@@ -63,6 +63,10 @@ code {
     position: relative;
 }
 
+.mouse-rect-container {
+    margin: 50px;
+}
+
 .next-icon {
  cursor: pointer;
  margin: 2.5em;
