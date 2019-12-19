@@ -12,17 +12,36 @@ const ImageRender = ({setUserRect, setUserSelection, userSelection}) => {
     const [userMousePosition, setUserMousePosition] = useState({top: '100px', left: '100px'})
     
     const moveHandler = (event) => {
-        const ratio = event.target.width / event.target.naturalWidth
+        let ratio = event.target.width / event.target.naturalWidth
         setUserRect({
             x: event.nativeEvent.offsetX / ratio - 50, 
             y: event.nativeEvent.offsetY / ratio - 50, 
             width: 150, 
             height: 150,
         })
+        // ensure user rect does not overflow boundaries of parent
+        let top = event.nativeEvent.offsetY - (100*ratio / 2)
+        let left = event.nativeEvent.offsetX - (100*ratio / 2)
+        let bottom = null;
+        let right = null
+        if (top < 0) {
+            top = 0
+        } else if (top + (150*ratio) > event.target.offsetHeight) {
+            top = null 
+            bottom = 0;
+        }
+        if (left < 0) {
+            left = 0
+        } else if (left +(150 * ratio) > event.target.offsetWidth) {
+            left = null;
+            right = 0
+        }
 
         setUserMousePosition({
-            top: event.nativeEvent.offsetY - (100*ratio / 2),
-            left: event.nativeEvent.offsetX - (100*ratio / 2),
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right,
             width: 150 * ratio,
             height: 150 * ratio
         })
@@ -45,7 +64,6 @@ const ImageRender = ({setUserRect, setUserSelection, userSelection}) => {
             currentIndex = 0
         }
         setUserSelection(images[currentIndex])
-        
     }
 
     return(
